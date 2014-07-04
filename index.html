@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simply Clean</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="main">
+      <div data-role="header" class="jqm-header">
+        <h1>Simply Clean</h1>
+      </div>
+
+      <div data-role="content">
+
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-mini="false">
+    <div data-role="collapsible">
+        <h3>Time/Date</h3>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Date format</legend>
+        <input name="key0" id="key0-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key0-0">'04. Jul. 2014'</label>
+        <input name="key0" id="key0-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key0-1">'04/07/14'</label>
+        <input name="key0" id="key0-2" data-type="int" value="2" checked="checked" type="radio">
+        <label for="key0-2">'07/04/14'</label>
+</fieldset>
+    </div>
+<div data-role="collapsible">
+        <h3>Features</h3>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Bluetooth disconnect alert</legend>
+    	<input name="key1" id="key1-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key1-1">True</label>
+        <input name="key1" id="key1-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key1-0">False</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Bluetooth reconnect alert</legend>
+    	<input name="key2" id="key2-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key2-1">True</label>
+        <input name="key2" id="key2-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key2-0">False</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Show text</legend>
+    <i>Show text above time and in date line. ie. "It is" and "on [date]"</i>
+    	<input name="key3" id="key3-4" data-type="int" value="4" checked="checked" type="radio">
+        <label for="key3-4">Show all</label>
+        <input name="key3" id="key3-3" data-type="int" value="3" checked="checked" type="radio">
+        <label for="key3-3">Show only "It is"</label>
+    	<input name="key3" id="key3-2" data-type="int" value="2" checked="checked" type="radio">
+        <label for="key3-2">Show only "on [date]"</label>
+        <input name="key3" id="key3-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key3-0">Off completely</label>
+</fieldset>
+</div>
+
+<div data-role="collapsible">
+        <h3>Advanced</h3>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Language</legend>
+    	<input name="key4" id="key4-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key4-0">English</label>
+</fieldset>
+
+</div>
+
+    <div data-role="collapsible">
+        <h3>Information and Support</h3>
+<p>Newest watchface version: 0.5.0 internal beta<br><br>
+Website version: 0.1.0<br><br>
+<b>Credits:</b><br> Edwin Finch - Lead developer<br><br>
+<i>www.edwinfinch.com/pebble/ see all my projects</i><br><br>
+
+<i>Philipp Weder</i><br>
+Insert credit here.
+
+<b><i>SUPPORT</i></b><br>
+<p>Please contact <b>contact@edwinfinch.com</b> if you need any technical support, want to
+	report a bug that you are experiencing, or suggest a feature. I will get back to you 
+	within a day (most likely) and try to fix you ASAP.
+	<br><br>
+	If you want to see the rest of my software, go to www.edwinfinch.com/pebble/.
+	<br><br>
+	If you want to be a beta tester for this watchface or any other software of mine,
+	join the Google+ community by going to the link: http://bit.ly/edwinsbetas
+
+	<br><br><b><i>THIS SOFTWARE IS IN BETA</i></b><br>
+</p>
+</p>
+
+</p>
+</fieldset>
+    </div>
+</div>
+<br />
+        <div class="ui-body ui-body-c">
+          <fieldset class="ui-grid-a">
+              <div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>
+              <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Save</button></div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <script>
+      function saveOptions() {
+        var options = {
+          'dateformat':     Number( $("input[name=key0]:checked").val() ),
+      	  'btdisalert':     Number( $("input[name=key1]:checked").val() ),
+      	  'btrealert':     Number( $("input[name=key2]:checked").val() ),
+      	  'showdestext':     Number( $("input[name=key3]:checked").val() ),
+      	   'language':     Number( $("input[name=key3]:checked").val() ),
+        }
+        return options;
+      }
+
+      $().ready(function() {
+       if (typeof window.localStorage !== "undefined") {
+       	console.log("Not undefined :)");
+        if (window.localStorage.simplycleanops) {
+          ls_pto = JSON.parse(window.localStorage.simplycleanops);
+          // the Pebble webview dies on the next line...
+          $("input[name=key0][id=key0-"+ls_pto["dateformat"]+"]").prop('checked',true);
+          $("input[name=key0]").checkboxradio('refresh');
+          $("input[name=key1][id=key1-"+ls_pto["btdisalert"]+"]").prop('checked',true);
+          $("input[name=key1]").checkboxradio('refresh');
+          $("input[name=key2][id=key2-"+ls_pto["btrealert"]+"]").prop('checked',true);
+          $("input[name=key2]").checkboxradio('refresh');
+          $("input[name=key3][id=key3-"+ls_pto["showdestext"]+"]").prop('checked',true);
+          $("input[name=key3]").checkboxradio('refresh');
+          $("input[name=key4][id=key3-"+ls_pto["language"]+"]").prop('checked',true);
+          $("input[name=key4]").checkboxradio('refresh');
+        }
+       }
+        $("#b-cancel").click(function() {
+          console.log("Cancel");
+          document.location = "pebblejs://close";
+        });
+
+        $("#b-submit").click(function() {
+          console.log("Submit");
+
+          ls_pto = JSON.stringify(saveOptions());
+          if (typeof window.localStorage !== "undefined") {
+            window.localStorage.simplycleanops = ls_pto;
+          }
+          var location = "pebblejs://close#" + encodeURIComponent(ls_pto);
+          console.log("Warping to: " + location);
+          console.log(location);
+          document.location = location;
+        });
+
+      });
+    </script>
+  </body>
+</html>
