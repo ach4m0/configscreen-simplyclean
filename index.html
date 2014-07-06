@@ -124,10 +124,6 @@ Insert credit here.
         }
         return options;
       }
-      
-      function utf8_to_b64( str ) {
-        	return window.btoa(unescape(encodeURIComponent( str )));
-      }
 
       $().ready(function() {
        if (typeof window.localStorage !== "undefined") {
@@ -159,7 +155,7 @@ Insert credit here.
           if (typeof window.localStorage !== "undefined") {
             window.localStorage.simplycleanops = ls_pto;
           }
-          var location = "pebblejs://close#" + utf8_to_b64(ls_pto);
+          var location = "pebblejs://close#" + ls_pto;
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
