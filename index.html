@@ -24,9 +24,9 @@
     <legend>Date format</legend>
         <input name="key0" id="key0-0" data-type="int" value="0" checked="checked" type="radio">
         <label for="key0-0">'04. Jul. 2014'</label>
-        <input name="key0" id="key0-1" data-type="int" value="1" checked="checked" type="radio">
+        <input name="key0" id="key0-1" data-type="int" value="1" type="radio">
         <label for="key0-1">'04/07/14'</label>
-        <input name="key0" id="key0-2" data-type="int" value="2" checked="checked" type="radio">
+        <input name="key0" id="key0-2" data-type="int" value="2" type="radio">
         <label for="key0-2">'07/04/14'</label>
 </fieldset>
     </div>
@@ -37,7 +37,7 @@
     <legend>Bluetooth disconnect alert</legend>
     	<input name="key1" id="key1-1" data-type="int" value="1" checked="checked" type="radio">
         <label for="key1-1">True</label>
-        <input name="key1" id="key1-0" data-type="int" value="0" checked="checked" type="radio">
+        <input name="key1" id="key1-0" data-type="int" value="0" type="radio">
         <label for="key1-0">False</label>
 </fieldset>
 
@@ -45,21 +45,17 @@
     <legend>Bluetooth reconnect alert</legend>
     	<input name="key2" id="key2-1" data-type="int" value="1" checked="checked" type="radio">
         <label for="key2-1">True</label>
-        <input name="key2" id="key2-0" data-type="int" value="0" checked="checked" type="radio">
+        <input name="key2" id="key2-0" data-type="int" value="0" type="radio">
         <label for="key2-0">False</label>
 </fieldset>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
     <legend>Show text</legend>
     <i>Show text above time and in date line. ie. "It is" and "on [date]"</i>
-    	<input name="key3" id="key3-4" data-type="int" value="4" checked="checked" type="radio">
-        <label for="key3-4">Show all</label>
-        <input name="key3" id="key3-3" data-type="int" value="3" checked="checked" type="radio">
-        <label for="key3-3">Show only "It is"</label>
-    	<input name="key3" id="key3-2" data-type="int" value="2" checked="checked" type="radio">
-        <label for="key3-2">Show only "on [date]"</label>
-        <input name="key3" id="key3-0" data-type="int" value="0" checked="checked" type="radio">
-        <label for="key3-0">Off completely</label>
+    	<input name="key3" id="key3-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key3-1">On</label>
+        <input name="key3" id="key3-0" data-type="int" value="0" type="radio">
+        <label for="key3-0">Off</label>
 </fieldset>
 </div>
 
@@ -70,6 +66,12 @@
     <legend>Language</legend>
     	<input name="key4" id="key4-0" data-type="int" value="0" checked="checked" type="radio">
         <label for="key4-0">English</label>
+        <input name="key4" id="key4-1" data-type="int" value="1" type="radio">
+        <label for="key4-1">German</label>
+        <input name="key4" id="key4-2" data-type="int" value="2" type="radio">
+        <label for="key4-2">Spanish</label>
+        <input name="key4" id="key4-3" data-type="int" value="3" type="radio">
+        <label for="key4-3">Dutch</label>
 </fieldset>
 
 </div>
@@ -77,7 +79,7 @@
     <div data-role="collapsible">
         <h3>Information and Support</h3>
 <p>Newest watchface version: 0.5.0 internal beta<br><br>
-Website version: 0.1.0<br><br>
+Website version: 0.2.0<br><br>
 <b>Credits:</b><br> Edwin Finch - Lead developer<br><br>
 <i>www.edwinfinch.com/pebble/ see all my projects</i><br><br>
 
@@ -118,7 +120,7 @@ Insert credit here.
       	  'btdisalert':     Number( $("input[name=key1]:checked").val() ),
       	  'btrealert':     Number( $("input[name=key2]:checked").val() ),
       	  'showdestext':     Number( $("input[name=key3]:checked").val() ),
-      	   'language':     Number( $("input[name=key3]:checked").val() ),
+      	   'language':     Number( $("input[name=key4]:checked").val() ),
         }
         return options;
       }
@@ -137,7 +139,7 @@ Insert credit here.
           $("input[name=key2]").checkboxradio('refresh');
           $("input[name=key3][id=key3-"+ls_pto["showdestext"]+"]").prop('checked',true);
           $("input[name=key3]").checkboxradio('refresh');
-          $("input[name=key4][id=key3-"+ls_pto["language"]+"]").prop('checked',true);
+          $("input[name=key4][id=key4-"+ls_pto["language"]+"]").prop('checked',true);
           $("input[name=key4]").checkboxradio('refresh');
         }
        }
