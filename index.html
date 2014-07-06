@@ -18,6 +18,43 @@
 
 <div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-mini="false">
     <div data-role="collapsible">
+        <h3>Look and Feel</h3>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>While bluetooth is disconnected, theme will be: </legend>
+        <input name="key5" id="key5-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key5-0">White on black (dark)</label>
+        <input name="key5" id="key5-1" data-type="int" value="1" type="radio">
+        <label for="key5-1">Black on white (light)</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>While bluetooth is connected, theme will be: </legend>
+        <input name="key6" id="key6-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key6-0">White on black (dark)</label>
+        <input name="key6" id="key6-1" data-type="int" value="1" type="radio">
+        <label for="key6-1">Black on white (light)</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Battery percent text</legend>
+        <input name="key7" id="key7-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key7-1">Show</label>
+        <input name="key7" id="key7-0" data-type="int" value="0" type="radio">
+        <label for="key7-0">Hide</label>
+</fieldset>
+
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Date</legend>
+        <input name="key8" id="key8-1" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key8-1">Show</label>
+        <input name="key8" id="key8-0" data-type="int" value="0" type="radio">
+        <label for="key8-0">Hide</label>
+</fieldset>
+    </div>
+
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-mini="false">
+    <div data-role="collapsible">
         <h3>Time/Date</h3>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
@@ -84,7 +121,7 @@ Website version: 0.2.0<br><br>
 <i>www.edwinfinch.com/pebble/ see all my projects</i><br><br>
 
 <i>Philipp Weder</i><br>
-Insert credit here.
+Design & idea by Philipp Weder / iPhibse (www.iPhibse.ch) <br><br>
 
 <b><i>SUPPORT</i></b><br>
 <p>Please contact <b>contact@edwinfinch.com</b> if you need any technical support, want to
@@ -95,8 +132,6 @@ Insert credit here.
 	<br><br>
 	If you want to be a beta tester for this watchface or any other software of mine,
 	join the Google+ community by going to the link: http://bit.ly/edwinsbetas
-
-	<br><br><b><i>THIS SOFTWARE IS IN BETA</i></b><br>
 </p>
 </p>
 
@@ -120,7 +155,11 @@ Insert credit here.
       	  'btdisalert':     Number( $("input[name=key1]:checked").val() ),
       	  'btrealert':     Number( $("input[name=key2]:checked").val() ),
       	  'showdestext':     Number( $("input[name=key3]:checked").val() ),
-      	   'language':     Number( $("input[name=key4]:checked").val() ),
+      	  'language':     Number( $("input[name=key4]:checked").val() ),
+      	  'btdistheme':     Number( $("input[name=key5]:checked").val() ),
+      	  'btcontheme':     Number( $("input[name=key6]:checked").val() ),
+      	  'showbattext':     Number( $("input[name=key7]:checked").val() ),
+      	  'showdate':     Number( $("input[name=key8]:checked").val() ),
         }
         return options;
       }
@@ -141,6 +180,14 @@ Insert credit here.
           $("input[name=key3]").checkboxradio('refresh');
           $("input[name=key4][id=key4-"+ls_pto["language"]+"]").prop('checked',true);
           $("input[name=key4]").checkboxradio('refresh');
+          $("input[name=key5][id=key5-"+ls_pto["btdistheme"]+"]").prop('checked',true);
+          $("input[name=key5]").checkboxradio('refresh');
+          $("input[name=key6][id=key6-"+ls_pto["btcontheme"]+"]").prop('checked',true);
+          $("input[name=key6]").checkboxradio('refresh');
+          $("input[name=key7][id=key7-"+ls_pto["showbattext"]+"]").prop('checked',true);
+          $("input[name=key7]").checkboxradio('refresh');
+          $("input[name=key8][id=key8-"+ls_pto["showdate"]+"]").prop('checked',true);
+          $("input[name=key8]").checkboxradio('refresh');
         }
        }
         $("#b-cancel").click(function() {
